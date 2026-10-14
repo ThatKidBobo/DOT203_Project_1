@@ -22,23 +22,28 @@ class SayiKontrol
 
             if (int.TryParse(deger, out sayi))
             {
-                if (sayi % 2 == 0)
-                {
-                    Console.WriteLine("");
-                    Console.WriteLine("Sayı çifttir.");
-                    islemtamam = true;
-                }
-                else
-                {
-                    Console.WriteLine("");
-                    Console.WriteLine("Sayı tektir.");
-                    islemtamam = true;
-                }
+                CiftTekKontrol(sayi, ref islemtamam);
             }
             else if (islemtamam == false)
             {
                 Console.WriteLine("Lütfen sayı girin.");
             }
+        }
+    }
+
+    public void CiftTekKontrol(int girileceksayi, ref bool donenislemtamam)
+    {
+        if (girileceksayi % 2 == 0)
+        {
+            Console.WriteLine("");
+            Console.WriteLine("Sayı çifttir.");
+            donenislemtamam = true;
+        }
+        else
+        {
+            Console.WriteLine("");
+            Console.WriteLine("Sayı tektir.");
+            donenislemtamam = true;
         }
     }
 }
