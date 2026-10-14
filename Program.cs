@@ -15,17 +15,26 @@ class SayiKontrol
         int sayi;
         bool islemtamam = false;
 
+        Console.WriteLine("Hoşgeldiniz, bir sayı girin veya N tuşu ile çıkın.");
+
         while (islemtamam == false)
         {
-            Console.Write("Sayı gir: ");
+            Console.WriteLine("");
+            Console.WriteLine("Sayı gir: ");
             deger = Console.ReadLine();
 
-            if (int.TryParse(deger, out sayi))
+            if (deger.ToUpper() == "N")
+            {
+                Console.WriteLine("İşlem sonlandırılıyor...");
+                Environment.Exit(0);
+            }
+            else if (int.TryParse(deger, out sayi))
             {
                 CiftTekKontrol(sayi, ref islemtamam);
             }
             else if (islemtamam == false)
             {
+                Console.WriteLine("");
                 Console.WriteLine("Lütfen sayı girin.");
             }
         }
