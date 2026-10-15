@@ -1,8 +1,22 @@
-﻿
-using System;
+﻿using System;
 
 class SayiKontrol
 {
+    private int _sayi;
+    private bool _islemTamam;
+
+    public int Sayi
+    {
+        get { return _sayi; }
+        set { _sayi = value; }
+    }
+
+    public bool IslemTamam
+    {
+        get { return _islemTamam; }
+        set { _islemTamam = value; }
+    }
+
     static void Main(string[] args)
     {
         SayiKontrol kontrol = new SayiKontrol();
@@ -30,9 +44,9 @@ class SayiKontrol
             }
             else if (int.TryParse(deger, out sayi))
             {
-                CiftTekKontrol(sayi, ref islemtamam);
+                islemtamam = CiftTekKontrol(sayi);
             }
-            else if (islemtamam == false)
+            else
             {
                 Console.WriteLine("");
                 Console.WriteLine("Lütfen sayı girin.");
@@ -40,19 +54,21 @@ class SayiKontrol
         }
     }
 
-    public void CiftTekKontrol(int girileceksayi, ref bool donenislemtamam)
+    public bool CiftTekKontrol(int girileceksayi)
     {
-        if (girileceksayi % 2 == 0)
+        Sayi = girileceksayi;
+
+        Console.WriteLine("");
+        if (Sayi % 2 == 0)
         {
-            Console.WriteLine("");
             Console.WriteLine("Sayı çifttir.");
-            donenislemtamam = true;
         }
         else
         {
-            Console.WriteLine("");
             Console.WriteLine("Sayı tektir.");
-            donenislemtamam = true;
         }
+
+        IslemTamam = true;
+        return IslemTamam;
     }
 }
